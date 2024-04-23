@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29",
+        "francerz/phpspreadsheet-util": "^0.1.0"
+    }
+}

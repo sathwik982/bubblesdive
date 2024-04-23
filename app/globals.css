@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(../lib/assets/home/wave.png);
+  background-size: 1000px 100px;
+  animation: animate 4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.25x);
+}
+
+.wave.wave-1 {
+  z-index: 100;
+  opacity: 1;
+  background-position-x: 400px;
+}
+
+.wave.wave-2 {
+  z-index: 99;
+  opacity: 0.5;
+  background-position-x: 300px;
+}
+
+.wave.wave-3 {
+  z-index: 98;
+  opacity: 0.2;
+  background-position-x: 200px;
+}
+
+.wave.wave-4 {
+  z-index: 97;
+  opacity: 0.7;
+  background-position-x: 100px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  75% {
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+.homeImage {
+  background: url(../lib/assets/home/1461282_Santa\ Giulia_Coastline_Beach_1920x1080.mp4) center/cover no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.underwater-body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.center-outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.center-inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.bubbles {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.bubbles img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: auto;
+  animation: anime 15s ease-in-out alternate infinite;
+}
+
+.individual-bubble {
+  background-image: url(../lib/assets/home/bubble.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  background-color: blue;
+  position: absolute;
+  bottom: -10px;
+  border-radius: 100%;
+  animation: bubbleAnimation 3s ease-in-out infinite;
+  /* Updated animation */
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    bottom: -20px;
+    transform: translateY(0);
+    /* Initial position */
+  }
+
+  50% {
+    bottom: 100%;
+    /* Move to the bottom */
+    transform: translateY(-100%);
+    opacity: 0;
+    /* Set opacity to 0 */
+  }
+
+  51% {
+    bottom: -20px;
+    /* Reset position at the bottom */
+    transform: translateY(0);
+    opacity: 0;
+    /* Keep opacity at 0 */
+  }
+
+  100% {
+    bottom: -20px;
+    /* Stay at the bottom */
+    transform: translateY(0);
+    opacity: 1;
+    /* Fade in when returning to initial position */
+  }
+}
+
+
+/*  ----------------------Course Page------------------------ */
+.courseBookingInput {
+  @apply px-3 py-3 rounded-md border border-gray-500  focus:outline-none bg-transparent focus:border-primary overflow-x-hidden;
+}
+
+.courseBookingInputDark {
+  @apply px-3 py-3 rounded-md border  focus:outline-none bg-transparent focus:border-blue-700 text-gray-300 overflow-x-hidden;
+}
